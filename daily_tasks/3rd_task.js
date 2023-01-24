@@ -1,25 +1,22 @@
-const numGame = document.querySelector("#form");
-const inputMaxNum = numGame.querySelector("#generateNum");
-const inputNum = numGame.querySelector("#inputNum");
-const compareNum = document.querySelector("#compare");
-const result = document.querySelector("#result");
+const guessForm = document.getElementById("js-guess");
+const result = document.getElementById("js-result");
+const maxNumber = document.getElementById("maxNumber");
 
-const HIDDEN_CLASSNAME = "hidden";
-//대문자로 쓰는 관습이 있음.
-//보통 string만 저장하는 변수는 대문자로 표기
-function onSubmit(event) {
-  event.preventDefault(); //브라우저가 하는 기본 행동 막기
-  const guessNum = parseInt(inputNum.value);
-  const maxNum = inputMaxNum.value;
-  const randomNum = parseInt(Math.ceil(Math.random() * maxNum));
-  compareNum.innerText = `You chose: ${guessNum} ,the machine chose: ${randomNum}`;
-  if (guessNum === randomNum) {
-    result.innerText = "You won!";
-  } else {
-    result.innerText = "You lost!";
+function handleGuessSubmit(e) {
+  e.preventDefault();
+  const guessInput = guessForm.querySelector("input");
+  if (guessInput.value === "" && maxNumber === "") {
+    return;
   }
-  compareNum.classList.remove(HIDDEN_CLASSNAME);
-  result.classList.remove(HIDDEN_CLASSNAME);
+  const max = maxNumber.value;
+  const random = Math.ceil(Math.random() * max);
+  const userGuess = parseInt(guessInput.value, 10);
+  const resultSpan = result.querySelector("span");
+  resultSpan.innerHTML = `
+  You chose: ${userGuess},
+  the machine chose: ${random}.<br />
+  <strong>${userGuess === random ? "You won!" : "You lost!"}</strong>
+  `;
 }
 
-numGame.addEventListener("submit", onSubmit);
+guessForm.addEventListener("submit", handleGuessSubmit);
