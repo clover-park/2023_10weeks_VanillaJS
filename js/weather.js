@@ -1,4 +1,6 @@
 const API_KEY = "2918a4c5210f131fa817c206c676ce16";
+let locationIcon = document.querySelector(".weather-icon");
+const icon = data.weather[0];
 
 function onGeoOk(position) {
   const latitude = position.coords.latitude;
@@ -12,6 +14,7 @@ function onGeoOk(position) {
       const weather = document.querySelector("#weather span:last-child");
       city.innerText = data.name;
       weather.innerText = data.weather[0].main;
+      locationIcon.innerHTML = `<img src="openweathermap-api-icons-master/icons/${icon}.png">;`;
     });
 }
 

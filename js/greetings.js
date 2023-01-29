@@ -25,6 +25,6 @@ if (savedUsername === null) {
   loginForm.classList.remove(HIDDEN_CLASSNAME);
   loginForm.addEventListener("submit", onLoginSubmit);
 } else {
-  // show the greeting
+  // remove the form, show the greeting
   paintGreetings(savedUsername);
 }
