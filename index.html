@@ -14,7 +14,7 @@ html이 실행됨.->html이css와js를 가져오는 거임.
   <h2 id="clock"></h2>
   <form id="login-form" class="hidden">
     <input required maxlength="15" type="text" placeholder="Welcome! Who are you?"/>
-    <input type="submit"/>
+    <input type="submit" value="submit"/>
   </form>
   <h1 id="greeting" class="hidden"></h1>
   <h1 id="countdownText" class="hidden">Time Until Your Trip to Taiwan</h1>
@@ -24,16 +24,15 @@ html이 실행됨.->html이css와js를 가져오는 거임.
     <input required type="text" placeholder="Write a To Do and Press Enter"/>
   </form>
   <ul id="todo-list"></ul>
-  
+  <div id="weather">
+    <span></span>
+    <span></span>
+  </div>
   <div id="quote">
     <span></span>
     <span></span>
   </div>
-  <div id="weather">
-    <span></span>
-    <span></span>
-    <div class="weather-icon"><img src="icons/unknown.png" /></div>
-  </div>
+
   <script src="js/greetings.js"></script>
   <script src="js/clock.js"></script>
   <script src="js/D-day.js"></script>
