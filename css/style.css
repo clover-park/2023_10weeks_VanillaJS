@@ -114,3 +114,22 @@ li {
   animation-delay: 2s;
   font-style: italic;
 }
+#no-mobile {
+  position: absolute;
+  z-index: 99;
+  top:0;
+  height: 100vh;
+  width: 100vw;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color:black;
+  text-shadow: none;
+  font-size: 30px;
+}
+@media screen and (min-width: 800px) {
+  #no-mobile {
+    display: none;
+  }
+}
